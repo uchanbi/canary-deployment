@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment 
+metadata: 
+  name: hellow-v2
+spec: 
+  replicas: 3
+  template:
+    metadata: 
+      labels:
+        app: hellow
+        version: v2
+    spec:
+      containers:
+      - name: hellow 
+        image: wardviaene/http-echo
+        env: 
+        - name: TEXT
+          value: hellow this is version 2
+        - name: NEXT
+          value: "world-2:8080"
+        ports:
+        - name: http
+          containerPort: 8080
+
+
+
+
+
+
